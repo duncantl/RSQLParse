@@ -1,0 +1,6 @@
+Title: Parse SQL commands
+Package: RSQLParse
+Version: 0.1-0
+Description: Interface to libpg_query
+Author: Duncan Temple Lang
+Maintainer: Duncan Temple Lang <duncan@r-project.org>
