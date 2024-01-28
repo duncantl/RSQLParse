@@ -18,10 +18,20 @@ function(sql, asText = !file.exists(sql))
     names(g) = gsub(" .*", "", sapply(g, `[`, 1))
 
     g2 = split(g, names(g))
+    g2 = lapply(g2, setNames)
+        
     g2$procFuns = procFuns
 
     g2
 }
+
+setNames =
+function(x)
+{
+    names(x) = gsub("[^`]*`([^`]+)`.*", "\\1", sapply(x, `[`, 1))
+    x
+}
+
 
 mkProcFuns =
 function(x, s, e)
