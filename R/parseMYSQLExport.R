@@ -8,7 +8,7 @@ function(sql, asText = !file.exists(sql))
     e = grep("^ *END\\$\\$", sql)
 
     procFuns = mkProcFuns(sql, s, e)
-    sql = d[ - unlist(mapply(seq, s, e)) ]
+    sql = sql[ - unlist(mapply(seq, s, e)) ]
 
     sql = removeComments(sql)
     d4 = strsplit(gsub("\\n\\n+", "\n\n", paste(sql, collapse = "\n")), "\\n")[[1]]
@@ -36,7 +36,7 @@ function(x)
 mkProcFuns =
 function(x, s, e)
 {
-    procFuns = mapply(function(s, e) d[seq(s, e)], s, e)
+    procFuns = mapply(function(s, e) x[seq(s, e)], s, e)
     names(procFuns) = gsub("[^`]*`([^`]+)`.*", "\\1", sapply(procFuns, `[`, 1))
     procFuns
 }

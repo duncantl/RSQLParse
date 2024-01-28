@@ -1,3 +1,5 @@
 useDynLib(RSQLParse)
 export(parseSQL)
 
+export(mysqlExport)
+
