@@ -1,5 +1,7 @@
+importFrom(RJSONIO, fromJSON)
 useDynLib(RSQLParse)
 export(parseSQL)
+export(sqlParse)
 
 export(mysqlExport)
 

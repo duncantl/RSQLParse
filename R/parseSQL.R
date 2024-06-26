@@ -1,4 +1,4 @@
-parseSQL =
+parseSQL = sqlParse =
 function(query, asText = !file.exists(query))
 {
     query = as.character(query)
