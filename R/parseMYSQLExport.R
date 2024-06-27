@@ -8,7 +8,9 @@ function(sql, asText = !file.exists(sql))
     e = grep("^ *END\\$\\$", sql)
 
     procFuns = mkProcFuns(sql, s, e)
-    sql = sql[ - unlist(mapply(seq, s, e)) ]
+
+    if(length(s))
+        sql = sql[ - unlist(mapply(seq, s, e)) ]
 
     sql = removeComments(sql)
     d4 = strsplit(gsub("\\n\\n+", "\n\n", paste(sql, collapse = "\n")), "\\n")[[1]]
