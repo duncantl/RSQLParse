@@ -1,0 +1,45 @@
+SELECT * FROM Tbl1;
+
+SELECT Var FROM Tbl1;
+
+SELECT Var1, Var2 FROM Tbl1;
+
+SELECT Var1, Var2 FROM Tbl1 LIMIT 10;
+
+SELECT Var1, Var2 FROM Tbl1 WHERE Var3 > 10;
+
+SELECT Var1, Var2 FROM Tbl1 WHERE Var3 > Var4;
+
+SELECT Var1, COUNT(Var1) FROM Tbl1 WHERE Var3 > Var4 GROUP BY Var1;
+
+SELECT Var1, COUNT(Var1) FROM Tbl1 WHERE Var3 > Var4 GROUP BY Var1, Var2;
+
+SELECT Var1, COUNT(DISTINCT Var1) FROM Tbl1 WHERE Var3 > Var4 GROUP BY Var1, Var2;
+
+SELECT Var1, COUNT(DISTINCT Var1) FROM Tbl1 AS a, Tbl2 AS b WHERE a.id = b.id AND Var3 > Var4 GROUP BY Var1, Var2;
+
+
+INSERT INTO Tbl1 (ABC, DEF, X) VALUES (1.2, "abc", 1);
+
+UPDATE Tbl1 SET DEF="abc", X = 1 WHERE ABC = 1;
+
+
+DROP TABLE Tbl1;
+
+CREATE TABLE Tbl1 ( ABC int, DEF varchar(255), X bool);
+
+CREATE TABLE Tbl1 (id int, ABC int, DEF varchar(255), X bool, PRIMARY KEY (id));
+
+CREATE TABLE Tbl1 (id int, ABC int, DEF varchar(255), X bool, PRIMARY KEY (id), FOREIGN KEY (id2) REFERENCES Tbl2(id));
+
+
+ALTER TABLE Tbl1 Add Var2 int;
+
+ALTER TABLE Tbl1 DROP COLUMN Var2;
+
+ALTER TABLE Tbl1 RENAME COLUMN Var2 TO Var2prime;
+
+-- For postgres, not MODIFY COLUMN but ALTER COLUMN
+-- ALTER TABLE Tbl MODIFY COLUMN Var2 TYPE varchar(250);
+ALTER TABLE Tbl ALTER COLUMN Var2 TYPE int;
+
